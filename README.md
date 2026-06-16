@@ -5,10 +5,10 @@ A futuristic operating system-inspired portfolio website that transforms a tradi
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![Frontend](https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JavaScript-blue)
 ![Responsive](https://img.shields.io/badge/Responsive-Yes-green)
-![alt text](image-4.png)
-![alt text](image-3.png)
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](booting.png)
+![alt text](clockscreen.png)
+![alt text](lightmode.png)
+![alt text](darkmode.png)
 
 ---
 
