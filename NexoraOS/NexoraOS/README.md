@@ -1,39 +1,214 @@
-# nexoraos
+# 🖥️ NexoraOS
 
-A glass-morphic desktop environment that runs in your browser with macOS-inspired design and complete file persistence.
+A futuristic operating system-inspired portfolio website that transforms a traditional portfolio into an interactive desktop experience. Built to showcase my projects, skills, achievements, and journey in Data Science, Machine Learning, AI, and Web Development through a modern and immersive user interface.
 
-![nexoraos Desktop](assets/nexoraos.png)
-
-##  Features
-
-- **Complete window management** — Drag, resize, minimize, maximize, and fullscreen windows with smooth animations
-- **File system with persistence** — Create, rename, duplicate, and delete text files and folders that persist across sessions
-- **Built-in applications** — Notes editor, file explorer, browser (Browser), settings, app store, terminal, and guide
-- **Installable apps** — Calculator, Focus timer, and Weather app available from VibeStore
-- **Desktop widgets** — Digital clock, analog clock, and calendar widgets you can place and resize
-- **Theme customization** — Light and dark modes with multiple accent colors and wallpapers
-- **Responsive dock** — Dynamic dock with app launcher and minimized window management
-- **Smart layouts** — Auto-align desktop icons to grid with collision detection
-- **Full keyboard shortcuts** — Ctrl+S to save, Ctrl+N for new file, and more
-- **Browser preview** — Browser app lets you preview websites in embedded iframes
-- **System controls** — Control center with Wi-Fi status, battery info, and brightness adjustment
-
-##  How to run
-
-1. Clone or download this repository
-2. Open `index.html` in a modern browser (Chrome, Firefox, Edge, or Safari)
-3. Click "Enter nexoraos" on the lock screen
-
-No build process, no dependencies, no server required. Everything runs client-side.
-
-##  How it works
-
-nexoraos uses vanilla JavaScript with Web APIs for a native-like desktop experience. The window system uses CSS transforms and the Web Animations API for fluid minimize/restore animations that match macOS behavior. File persistence leverages localStorage with JSON serialization, while the dock implements a z-index stacking system for proper window focus management. Desktop icon positioning uses a spatial grid algorithm with collision detection to prevent overlaps. The glass-morphic UI applies CSS backdrop-filter with layered gradients and careful opacity tuning for depth.
-
-##  Credits
-- Fonts: Inter UI 
-- Design inspiration: macOS Big Sur and later
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Frontend](https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JavaScript-blue)
+![Responsive](https://img.shields.io/badge/Responsive-Yes-green)
+![alt text](image-4.png)
+![alt text](image-3.png)
+![alt text](image.png)
+![alt text](image-1.png)
 
 ---
 
-Built with using vanilla HTML, CSS, and JavaScript b
+## 📖 Overview
+
+NexoraOS reimagines the concept of a personal portfolio as a desktop operating system. Visitors can navigate through applications, explore projects, view technical skills, and learn more about my experience through an intuitive and visually appealing interface.
+
+---
+
+## ✨ Features
+
+- 🖥️ Operating system-inspired interface
+- 📱 Fully responsive design
+- ⚡ Smooth animations and interactions
+- 📂 Interactive desktop icons
+- 📈 Professional timeline section
+- 🛠️ Skills dashboard
+- 📁 Project showcase
+- 📬 Contact section
+- 🎨 Custom-designed UI assets
+- 🌙 Modern dark theme
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+
+### Design & Assets
+
+- Custom Icons
+- SVG Graphics
+- Responsive Layouts
+
+---
+
+## 📂 Project Structure
+
+```text
+NexoraOS/
+│
+├── index.html
+├── styles.css
+├── app.js
+├── README.md
+│
+└── assets/
+    │
+    ├── Nexora assets/
+    │   ├── app_icon.png
+    │   ├── Horizontal.png
+    │   ├── Vertical.png
+    │   ├── Browser.png
+    │   ├── calculator.png
+    │   ├── file-explorer.png
+    │   ├── folder.png
+    │   ├── notes.png
+    │   ├── settings.png
+    │   ├── weather.png
+    │   ├── txt.png
+    │   ├── background1.jpeg
+    │   ├── background2.jpg
+    │   ├── blank.png
+    │   ├── vibesstore.png
+    │   └── focus.png
+    │
+    ├── cursor-pointer.svg
+    └── windows.svg
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+You only need a modern web browser:
+
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
+- Safari
+
+---
+
+## 📥 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/NexoraOS.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd NexoraOS
+```
+
+---
+
+## ▶️ Running the Project
+
+### Option 1: Open Directly
+
+Open the `index.html` file in your browser.
+
+### Option 2: Using VS Code Live Server
+
+1. Install the Live Server extension.
+2. Open the project in VS Code.
+3. Right-click `index.html`.
+4. Select **Open with Live Server**.
+
+---
+
+## 🎯 Purpose
+
+This project was created to:
+
+- Present technical skills in a unique way
+- Showcase projects through an engaging experience
+- Demonstrate frontend development abilities
+- Build a memorable portfolio for recruiters and collaborators
+- Combine creativity with usability
+
+---
+
+## 🖼️ Custom Assets
+
+NexoraOS includes a collection of custom-designed operating system assets, such as:
+
+- Application icons
+- File explorer graphics
+- Settings and utility icons
+- Wallpapers and backgrounds
+- Custom cursor assets
+- Desktop interface elements
+
+These assets help create a cohesive operating system experience throughout the website.
+
+---
+
+## 🔮 Future Improvements
+
+Planned features include:
+
+- Window management system
+- Draggable applications
+- Interactive terminal
+- Theme customization
+- Progressive Web App (PWA) support
+- AI-powered assistant
+- Additional desktop applications
+
+---
+
+## 🤝 Contributing
+
+Contributions, ideas, and suggestions are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add feature"
+```
+
+4. Push to GitHub
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+## 👨‍💻 Authors
+
+### Bassel Mohammed & Ammar Yasser 
+
+---
+
+## ⭐ Support
+
+If you found this project interesting, consider giving it a star. It helps others discover the project and supports future development.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
