@@ -6,8 +6,8 @@
   --text-soft: rgba(20, 32, 45, 0.58);
   --panel: rgba(255, 250, 241, 0.88);
   --panel-solid: #fffaf1;
-  --surface: rgba(255, 252, 246, 0.92);
-  --surface-hover: rgba(255, 255, 255, 0.74);
+  --Browserace: rgba(255, 252, 246, 0.92);
+  --Browserace-hover: rgba(255, 255, 255, 0.74);
   --line: rgba(255, 255, 255, 0.52);
   --accent: #226a78;
   --accent-soft: rgba(34, 106, 120, 0.14);
@@ -98,7 +98,7 @@ body {
 }
 
 .boot-loader::before {
-  border: 3px solid rgba(255, 255, 255, 0.16);
+  border: 3px solid rgba(215, 212, 212, 0.16);
 }
 
 .boot-loader span {
@@ -1114,7 +1114,7 @@ body.placement-mode .placement-hint {
   background: rgba(255, 255, 255, 0.72);
 }
 
-.surf-window {
+.Browser-window {
   min-width: 520px;
   min-height: 420px;
   border-color: rgba(255, 255, 255, 0.72);
@@ -1123,19 +1123,19 @@ body.placement-mode .placement-hint {
     rgba(255, 255, 255, 0.64);
 }
 
-.surf-window .title-bar {
+.Browser-window .title-bar {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.34)),
     rgba(246, 250, 251, 0.52);
   backdrop-filter: blur(18px) saturate(150%);
 }
 
-.surf-title-logo {
+.Browser-title-logo {
   display: grid;
   place-items: center;
 }
 
-.surf-title-logo img {
+.Browser-title-logo img {
   width: 26px;
   height: 26px;
   object-fit: contain;
@@ -1144,12 +1144,12 @@ body.placement-mode .placement-hint {
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
-.surf-title-logo:hover img {
+.Browser-title-logo:hover img {
   opacity: 1;
   transform: translateY(-1px);
 }
 
-.surf-body {
+.Browser-body {
   display: grid;
   grid-template-rows: auto auto 2px minmax(0, 1fr);
   height: 516px;
@@ -1161,7 +1161,7 @@ body.placement-mode .placement-hint {
     #f8fafc;
 }
 
-.surf-tabbar {
+.Browser-tabbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 36px;
   align-items: center;
@@ -1172,15 +1172,15 @@ body.placement-mode .placement-hint {
     rgba(240, 248, 250, 0.56);
 }
 
-.surf-tab-list {
+.Browser-tab-list {
   display: flex;
   gap: 7px;
   min-width: 0;
   overflow-x: auto;
 }
 
-.surf-tab,
-.surf-new-tab {
+.Browser-tab,
+.Browser-new-tab {
   min-height: 34px;
   color: rgba(20, 32, 45, 0.62);
   border: 1px solid transparent;
@@ -1188,7 +1188,7 @@ body.placement-mode .placement-hint {
   background: rgba(31, 43, 55, 0.045);
 }
 
-.surf-tab {
+.Browser-tab {
   display: grid;
   grid-template-columns: minmax(72px, 1fr) 18px;
   align-items: center;
@@ -1199,7 +1199,7 @@ body.placement-mode .placement-hint {
   text-align: left;
 }
 
-.surf-tab.active {
+.Browser-tab.active {
   color: rgba(20, 32, 45, 0.9);
   border-color: rgba(255, 255, 255, 0.58);
   background: rgba(255, 255, 255, 0.76);
@@ -1208,7 +1208,7 @@ body.placement-mode .placement-hint {
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
-.surf-tab span:first-child {
+.Browser-tab span:first-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1216,7 +1216,7 @@ body.placement-mode .placement-hint {
   font-weight: 750;
 }
 
-.surf-tab-close {
+.Browser-tab-close {
   display: grid;
   width: 18px;
   height: 18px;
@@ -1227,12 +1227,12 @@ body.placement-mode .placement-hint {
   line-height: 1;
 }
 
-.surf-tab-close:hover {
+.Browser-tab-close:hover {
   color: rgba(20, 32, 45, 0.9);
   background: rgba(31, 43, 55, 0.08);
 }
 
-.surf-new-tab {
+.Browser-new-tab {
   display: grid;
   width: 34px;
   height: 34px;
@@ -1241,16 +1241,16 @@ body.placement-mode .placement-hint {
   background: rgba(255, 255, 255, 0.58);
 }
 
-.surf-new-tab svg {
+.Browser-new-tab svg {
   width: 16px;
   height: 16px;
 }
 
-.window.fullscreen .surf-body {
+.window.fullscreen .Browser-body {
   height: calc(100vh - 138px);
 }
 
-.surf-toolbar {
+.Browser-toolbar {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr) 40px;
   align-items: center;
@@ -1263,7 +1263,7 @@ body.placement-mode .placement-hint {
   backdrop-filter: blur(18px) saturate(145%);
 }
 
-.surf-nav {
+.Browser-nav {
   display: inline-flex;
   gap: 6px;
   padding: 3px;
@@ -1272,8 +1272,8 @@ body.placement-mode .placement-hint {
   background: rgba(31, 43, 55, 0.035);
 }
 
-.surf-nav button,
-.surf-go {
+.Browser-nav button,
+.Browser-go {
   display: grid;
   place-items: center;
   color: rgba(20, 32, 45, 0.7);
@@ -1288,25 +1288,25 @@ body.placement-mode .placement-hint {
     box-shadow 170ms ease;
 }
 
-.surf-nav button {
+.Browser-nav button {
   width: 32px;
   height: 32px;
 }
 
-.surf-nav button:disabled {
+.Browser-nav button:disabled {
   opacity: 0.36;
   transform: none;
 }
 
-.surf-nav svg,
-.surf-go svg,
-.surf-address svg {
+.Browser-nav svg,
+.Browser-go svg,
+.Browser-address svg {
   width: 16px;
   height: 16px;
   stroke-width: 2.3;
 }
 
-.surf-address {
+.Browser-address {
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
   align-items: center;
@@ -1325,14 +1325,14 @@ body.placement-mode .placement-hint {
     inset 0 -1px 0 rgba(31, 43, 55, 0.035);
 }
 
-.surf-address:focus-within {
+.Browser-address:focus-within {
   border-color: rgba(31, 122, 140, 0.34);
   box-shadow:
     0 0 0 3px rgba(31, 122, 140, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
-.surf-address input {
+.Browser-address input {
   width: 100%;
   min-width: 0;
   color: rgba(20, 32, 45, 0.84);
@@ -1344,7 +1344,7 @@ body.placement-mode .placement-hint {
   font-weight: 650;
 }
 
-.surf-go {
+.Browser-go {
   width: 40px;
   height: 40px;
   color: #ffffff;
@@ -1355,28 +1355,28 @@ body.placement-mode .placement-hint {
   box-shadow: 0 10px 20px rgba(31, 122, 140, 0.22);
 }
 
-.surf-nav button:hover,
-.surf-tab:hover,
-.surf-new-tab:hover {
+.Browser-nav button:hover,
+.Browser-tab:hover,
+.Browser-new-tab:hover {
   color: rgba(20, 32, 45, 0.9);
   border-color: rgba(31, 122, 140, 0.12);
   background: rgba(31, 122, 140, 0.1);
   transform: translateY(-1px);
 }
 
-.surf-go:hover {
+.Browser-go:hover {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent),
     #167d8f;
 }
 
-.surf-progress {
+.Browser-progress {
   position: relative;
   overflow: hidden;
   background: transparent;
 }
 
-.surf-progress::before {
+.Browser-progress::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
@@ -1387,12 +1387,12 @@ body.placement-mode .placement-hint {
   transform: translateX(-100%);
 }
 
-.surf-progress.loading::before {
+.Browser-progress.loading::before {
   opacity: 1;
-  animation: surf-loading 1100ms ease-in-out infinite;
+  animation: Browser-loading 1100ms ease-in-out infinite;
 }
 
-.surf-frame-shell {
+.Browser-frame-shell {
   position: relative;
   display: grid;
   min-height: 0;
@@ -1407,7 +1407,7 @@ body.placement-mode .placement-hint {
     0 18px 42px rgba(31, 43, 55, 0.08);
 }
 
-.surf-status {
+.Browser-status {
   position: absolute;
   left: 14px;
   bottom: 12px;
@@ -1428,19 +1428,19 @@ body.placement-mode .placement-hint {
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.surf-status.show {
+.Browser-status.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-.surf-start-page,
-.surf-error-state {
+.Browser-start-page,
+.Browser-error-state {
   position: absolute;
   inset: 0;
   z-index: 2;
 }
 
-.surf-start-page {
+.Browser-start-page {
   display: grid;
   place-items: center;
   padding: 28px;
@@ -1452,13 +1452,13 @@ body.placement-mode .placement-hint {
   transition: opacity 190ms ease, transform 190ms ease;
 }
 
-.surf-start-page.hidden {
+.Browser-start-page.hidden {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.99);
 }
 
-.surf-bg-glow {
+.Browser-bg-glow {
   position: absolute;
   width: 210px;
   aspect-ratio: 1;
@@ -1468,19 +1468,19 @@ body.placement-mode .placement-hint {
   opacity: 0.22;
 }
 
-.surf-bg-glow.one {
+.Browser-bg-glow.one {
   left: 8%;
   bottom: 10%;
   background: #80c7d2;
 }
 
-.surf-bg-glow.two {
+.Browser-bg-glow.two {
   right: 10%;
   top: 12%;
   background: #f1d28d;
 }
 
-.surf-start-center {
+.Browser-start-center {
   position: relative;
   z-index: 1;
   display: grid;
@@ -1489,14 +1489,14 @@ body.placement-mode .placement-hint {
   gap: 16px;
 }
 
-.surf-start-logo {
+.Browser-start-logo {
   width: 70px;
   height: 70px;
   object-fit: contain;
   filter: drop-shadow(0 16px 24px rgba(31, 43, 55, 0.16));
 }
 
-.surf-start-center h2 {
+.Browser-start-center h2 {
   margin: 0 0 2px;
   color: rgba(20, 32, 45, 0.9);
   font-size: clamp(24px, 4vw, 34px);
@@ -1505,7 +1505,7 @@ body.placement-mode .placement-hint {
   text-align: center;
 }
 
-.surf-start-search {
+.Browser-start-search {
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr) 38px;
   align-items: center;
@@ -1523,7 +1523,7 @@ body.placement-mode .placement-hint {
   backdrop-filter: blur(18px);
 }
 
-.surf-start-search input {
+.Browser-start-search input {
   width: 100%;
   min-width: 0;
   color: rgba(20, 32, 45, 0.86);
@@ -1535,7 +1535,7 @@ body.placement-mode .placement-hint {
   font-weight: 650;
 }
 
-.surf-start-search button {
+.Browser-start-search button {
   display: grid;
   width: 38px;
   height: 38px;
@@ -1545,12 +1545,12 @@ body.placement-mode .placement-hint {
   background: #1f7a8c;
 }
 
-.surf-start-search svg {
+.Browser-start-search svg {
   width: 18px;
   height: 18px;
 }
 
-.surf-error-state {
+.Browser-error-state {
   display: none;
   place-items: center;
   padding: 28px;
@@ -1560,11 +1560,11 @@ body.placement-mode .placement-hint {
     linear-gradient(135deg, #fffdf8, #f1f8fa);
 }
 
-.surf-error-state.show {
+.Browser-error-state.show {
   display: grid;
 }
 
-.surf-error-state img {
+.Browser-error-state img {
   width: 62px;
   height: 62px;
   object-fit: contain;
@@ -1572,14 +1572,14 @@ body.placement-mode .placement-hint {
   filter: drop-shadow(0 14px 22px rgba(31, 43, 55, 0.14));
 }
 
-.surf-error-state h2 {
+.Browser-error-state h2 {
   margin: 0 0 8px;
   color: rgba(20, 32, 45, 0.9);
   font-size: 24px;
   font-weight: 850;
 }
 
-.surf-error-state p {
+.Browser-error-state p {
   max-width: 380px;
   margin: 0 auto 18px;
   color: rgba(20, 32, 45, 0.58);
@@ -1588,14 +1588,14 @@ body.placement-mode .placement-hint {
   line-height: 1.45;
 }
 
-.surf-error-state div {
+.Browser-error-state div {
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.surf-error-state button {
+.Browser-error-state button {
   min-height: 36px;
   padding: 0 14px;
   color: rgba(20, 32, 45, 0.84);
@@ -1605,12 +1605,12 @@ body.placement-mode .placement-hint {
   font-weight: 750;
 }
 
-.surf-error-state button:first-child {
+.Browser-error-state button:first-child {
   color: #ffffff;
   background: #1f7a8c;
 }
 
-@keyframes surf-loading {
+@keyframes Browser-loading {
   0% {
     transform: translateX(-110%);
   }
@@ -1620,7 +1620,7 @@ body.placement-mode .placement-hint {
   }
 }
 
-.surf-frame-shell iframe {
+.Browser-frame-shell iframe {
   width: 100%;
   height: 100%;
   min-height: 0;
@@ -1631,12 +1631,12 @@ body.placement-mode .placement-hint {
   transition: opacity 190ms ease, transform 190ms ease;
 }
 
-.surf-frame-shell iframe.show {
+.Browser-frame-shell iframe.show {
   opacity: 1;
   transform: scale(1);
 }
 
-.surf-frame-shell iframe.loading {
+.Browser-frame-shell iframe.loading {
   opacity: 0.28;
 }
 
@@ -3799,7 +3799,7 @@ body.placement-mode .placement-hint {
 
 .window-body {
   color: var(--text-primary);
-  background: var(--surface);
+  background: var(--Browserace);
 }
 
 .window-body.files-body,
@@ -3808,16 +3808,16 @@ body.placement-mode .placement-hint {
   padding: 0;
 }
 
-.window-body.surf-body {
+.window-body.Browser-body {
   padding: 0;
 }
 
-.surf-window .window-title {
+.Browser-window .window-title {
   display: grid;
   place-items: center;
 }
 
-.surf-window .window-title img {
+.Browser-window .window-title img {
   width: 26px;
   height: 26px;
 }
@@ -4296,30 +4296,30 @@ body.placement-mode .placement-hint {
 }
 
 @media (max-width: 760px) {
-  .surf-window,
+  .Browser-window,
   .vibestore-window {
     min-width: 0;
   }
 
-  .surf-toolbar {
+  .Browser-toolbar {
     grid-template-columns: 1fr 40px;
     gap: 8px;
   }
 
-  .surf-nav {
+  .Browser-nav {
     grid-column: 1 / -1;
     justify-self: start;
   }
 
-  .surf-tab {
+  .Browser-tab {
     min-width: 124px;
   }
 
-  .surf-start-page {
+  .Browser-start-page {
     padding: 22px 16px;
   }
 
-  .surf-start-logo {
+  .Browser-start-logo {
     width: 58px;
     height: 58px;
   }
@@ -4361,7 +4361,7 @@ body.placement-mode .placement-hint {
 }
 
 @media (max-width: 480px) {
-  .surf-frame-shell {
+  .Browser-frame-shell {
     margin: 8px;
     border-radius: 18px;
   }
@@ -4434,8 +4434,8 @@ body.theme-dark {
   --text-soft: rgba(243, 247, 248, 0.64);
   --panel: rgba(16, 23, 29, 0.82);
   --panel-solid: #121a21;
-  --surface: rgba(17, 25, 32, 0.88);
-  --surface-hover: rgba(31, 43, 55, 0.82);
+  --Browserace: rgba(17, 25, 32, 0.88);
+  --Browserace-hover: rgba(31, 43, 55, 0.82);
   --line: rgba(255, 255, 255, 0.14);
   --glass-bg: rgba(8, 16, 22, 0.34);
   --glass-deep: rgba(7, 13, 18, 0.58);
@@ -4577,7 +4577,7 @@ body.theme-dark .bg-wordmark {
   text-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
 }
 
-body.theme-dark .surf-bg-glow,
+body.theme-dark .Browser-bg-glow,
 body.theme-dark .wifi-card::before {
   display: none;
 }
@@ -4597,7 +4597,7 @@ body.theme-dark .desktop-file-icon strong {
 
 body.theme-dark .title-bar,
 body.theme-dark .vibestore-window .title-bar,
-body.theme-dark .surf-window .title-bar {
+body.theme-dark .Browser-window .title-bar {
   color: rgba(243, 247, 248, 0.94);
   border-bottom-color: rgba(255, 255, 255, 0.08);
   background:
@@ -4606,7 +4606,7 @@ body.theme-dark .surf-window .title-bar {
 }
 
 body.theme-dark .window-title,
-body.theme-dark .surf-window .window-title {
+body.theme-dark .Browser-window .window-title {
   color: rgba(243, 247, 248, 0.94);
 }
 
@@ -5788,7 +5788,7 @@ body.theme-dark .window.focused {
 
 body.theme-dark .window .title-bar,
 body.theme-dark .window.focused .title-bar,
-body.theme-dark .surf-window .title-bar,
+body.theme-dark .Browser-window .title-bar,
 body.theme-dark .vibestore-window .title-bar {
   color: rgba(243, 247, 248, 0.95);
   border-bottom-color: rgba(255, 255, 255, 0.1);
@@ -5798,7 +5798,7 @@ body.theme-dark .vibestore-window .title-bar {
 }
 
 body.theme-dark .window-title,
-body.theme-dark .surf-window .window-title {
+body.theme-dark .Browser-window .window-title {
   color: rgba(245, 249, 250, 0.95);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.46);
 }
@@ -5812,7 +5812,7 @@ body.theme-dark .weather-body,
 body.theme-dark .guide-body,
 body.theme-dark .files-body,
 body.theme-dark .notes-body,
-body.theme-dark .surf-body {
+body.theme-dark .Browser-body {
   color: var(--text);
   background:
     linear-gradient(145deg, rgba(18, 28, 36, 0.98), rgba(9, 15, 21, 0.96)),
@@ -6026,13 +6026,13 @@ body.theme-dark .desktop-file-icon strong {
   color: rgba(243, 247, 248, 0.93);
 }
 
-body.theme-dark .surf-window {
+body.theme-dark .Browser-window {
   border-color: rgba(255, 255, 255, 0.16);
   background: rgba(10, 17, 23, 0.74);
 }
 
-body.theme-dark .surf-tabbar,
-body.theme-dark .surf-toolbar {
+body.theme-dark .Browser-tabbar,
+body.theme-dark .Browser-toolbar {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.1);
   background:
@@ -6040,68 +6040,68 @@ body.theme-dark .surf-toolbar {
     #0f171f;
 }
 
-body.theme-dark .surf-tab,
-body.theme-dark .surf-new-tab,
-body.theme-dark .surf-nav,
-body.theme-dark .surf-nav button {
+body.theme-dark .Browser-tab,
+body.theme-dark .Browser-new-tab,
+body.theme-dark .Browser-nav,
+body.theme-dark .Browser-nav button {
   color: rgba(224, 234, 237, 0.72);
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.06);
   box-shadow: none;
 }
 
-body.theme-dark .surf-tab.active {
+body.theme-dark .Browser-tab.active {
   color: rgba(248, 251, 252, 0.96);
   border-color: rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: none;
 }
 
-body.theme-dark .surf-tab:hover,
-body.theme-dark .surf-new-tab:hover,
-body.theme-dark .surf-nav button:hover {
+body.theme-dark .Browser-tab:hover,
+body.theme-dark .Browser-new-tab:hover,
+body.theme-dark .Browser-nav button:hover {
   color: rgba(248, 251, 252, 0.96);
   border-color: rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.1);
 }
 
-body.theme-dark .surf-address,
-body.theme-dark .surf-start-search,
-body.theme-dark .surf-status,
-body.theme-dark .surf-error-state button {
+body.theme-dark .Browser-address,
+body.theme-dark .Browser-start-search,
+body.theme-dark .Browser-status,
+body.theme-dark .Browser-error-state button {
   color: rgba(218, 230, 234, 0.68);
   border-color: rgba(255, 255, 255, 0.1);
   background: rgba(8, 15, 21, 0.72);
   box-shadow: none;
 }
 
-body.theme-dark .surf-address:focus-within {
+body.theme-dark .Browser-address:focus-within {
   border-color: color-mix(in srgb, var(--accent) 52%, rgba(255, 255, 255, 0.12));
   box-shadow: none;
 }
 
-body.theme-dark .surf-address input,
-body.theme-dark .surf-start-search input {
+body.theme-dark .Browser-address input,
+body.theme-dark .Browser-start-search input {
   color: rgba(246, 250, 251, 0.94);
 }
 
-body.theme-dark .surf-address input::placeholder,
-body.theme-dark .surf-start-search input::placeholder {
+body.theme-dark .Browser-address input::placeholder,
+body.theme-dark .Browser-start-search input::placeholder {
   color: rgba(218, 230, 234, 0.52);
 }
 
-body.theme-dark .surf-go,
-body.theme-dark .surf-start-search button,
-body.theme-dark .surf-error-state button:first-child {
+body.theme-dark .Browser-go,
+body.theme-dark .Browser-start-search button,
+body.theme-dark .Browser-error-state button:first-child {
   color: #fff;
   border-color: transparent;
   background: var(--accent);
   box-shadow: none;
 }
 
-body.theme-dark .surf-frame-shell,
-body.theme-dark .surf-start-page,
-body.theme-dark .surf-error-state {
+body.theme-dark .Browser-frame-shell,
+body.theme-dark .Browser-start-page,
+body.theme-dark .Browser-error-state {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.1);
   background:
@@ -6110,17 +6110,17 @@ body.theme-dark .surf-error-state {
   box-shadow: none;
 }
 
-body.theme-dark .surf-start-center h2,
-body.theme-dark .surf-error-state h2 {
+body.theme-dark .Browser-start-center h2,
+body.theme-dark .Browser-error-state h2 {
   color: rgba(246, 250, 251, 0.96);
 }
 
-body.theme-dark .surf-error-state p {
+body.theme-dark .Browser-error-state p {
   color: rgba(218, 230, 234, 0.66);
 }
 
-body.theme-dark .surf-start-logo,
-body.theme-dark .surf-error-state img {
+body.theme-dark .Browser-start-logo,
+body.theme-dark .Browser-error-state img {
   filter: none;
 }
 
@@ -6141,9 +6141,9 @@ body[data-background="background2"] .desktop::before {
 .settings-main,
 .files-grid,
 .notepad-editor,
-.surf-tab-list,
-.surf-start-page,
-.surf-error-state,
+.Browser-tab-list,
+.Browser-start-page,
+.Browser-error-state,
 .store-main {
   scrollbar-width: thin;
   scrollbar-color: rgba(35, 80, 92, 0.42) rgba(255, 255, 255, 0.18);
@@ -6153,9 +6153,9 @@ body[data-background="background2"] .desktop::before {
 .settings-main::-webkit-scrollbar,
 .files-grid::-webkit-scrollbar,
 .notepad-editor::-webkit-scrollbar,
-.surf-tab-list::-webkit-scrollbar,
-.surf-start-page::-webkit-scrollbar,
-.surf-error-state::-webkit-scrollbar,
+.Browser-tab-list::-webkit-scrollbar,
+.Browser-start-page::-webkit-scrollbar,
+.Browser-error-state::-webkit-scrollbar,
 .store-main::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -6165,9 +6165,9 @@ body[data-background="background2"] .desktop::before {
 .settings-main::-webkit-scrollbar-track,
 .files-grid::-webkit-scrollbar-track,
 .notepad-editor::-webkit-scrollbar-track,
-.surf-tab-list::-webkit-scrollbar-track,
-.surf-start-page::-webkit-scrollbar-track,
-.surf-error-state::-webkit-scrollbar-track,
+.Browser-tab-list::-webkit-scrollbar-track,
+.Browser-start-page::-webkit-scrollbar-track,
+.Browser-error-state::-webkit-scrollbar-track,
 .store-main::-webkit-scrollbar-track {
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.16);
@@ -6177,9 +6177,9 @@ body[data-background="background2"] .desktop::before {
 .settings-main::-webkit-scrollbar-thumb,
 .files-grid::-webkit-scrollbar-thumb,
 .notepad-editor::-webkit-scrollbar-thumb,
-.surf-tab-list::-webkit-scrollbar-thumb,
-.surf-start-page::-webkit-scrollbar-thumb,
-.surf-error-state::-webkit-scrollbar-thumb,
+.Browser-tab-list::-webkit-scrollbar-thumb,
+.Browser-start-page::-webkit-scrollbar-thumb,
+.Browser-error-state::-webkit-scrollbar-thumb,
 .store-main::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: var(--radius-pill);
@@ -6193,9 +6193,9 @@ body[data-background="background2"] .desktop::before {
 .settings-main::-webkit-scrollbar-thumb:hover,
 .files-grid::-webkit-scrollbar-thumb:hover,
 .notepad-editor::-webkit-scrollbar-thumb:hover,
-.surf-tab-list::-webkit-scrollbar-thumb:hover,
-.surf-start-page::-webkit-scrollbar-thumb:hover,
-.surf-error-state::-webkit-scrollbar-thumb:hover,
+.Browser-tab-list::-webkit-scrollbar-thumb:hover,
+.Browser-start-page::-webkit-scrollbar-thumb:hover,
+.Browser-error-state::-webkit-scrollbar-thumb:hover,
 .store-main::-webkit-scrollbar-thumb:hover {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12)),
@@ -6207,9 +6207,9 @@ body.theme-dark .vibestore-body,
 body.theme-dark .settings-main,
 body.theme-dark .files-grid,
 body.theme-dark .notepad-editor,
-body.theme-dark .surf-tab-list,
-body.theme-dark .surf-start-page,
-body.theme-dark .surf-error-state,
+body.theme-dark .Browser-tab-list,
+body.theme-dark .Browser-start-page,
+body.theme-dark .Browser-error-state,
 body.theme-dark .store-main {
   scrollbar-color: rgba(121, 165, 176, 0.5) rgba(255, 255, 255, 0.06);
 }
@@ -6218,9 +6218,9 @@ body.theme-dark .vibestore-body::-webkit-scrollbar-track,
 body.theme-dark .settings-main::-webkit-scrollbar-track,
 body.theme-dark .files-grid::-webkit-scrollbar-track,
 body.theme-dark .notepad-editor::-webkit-scrollbar-track,
-body.theme-dark .surf-tab-list::-webkit-scrollbar-track,
-body.theme-dark .surf-start-page::-webkit-scrollbar-track,
-body.theme-dark .surf-error-state::-webkit-scrollbar-track,
+body.theme-dark .Browser-tab-list::-webkit-scrollbar-track,
+body.theme-dark .Browser-start-page::-webkit-scrollbar-track,
+body.theme-dark .Browser-error-state::-webkit-scrollbar-track,
 body.theme-dark .store-main::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.06);
 }
@@ -6229,9 +6229,9 @@ body.theme-dark .vibestore-body::-webkit-scrollbar-thumb,
 body.theme-dark .settings-main::-webkit-scrollbar-thumb,
 body.theme-dark .files-grid::-webkit-scrollbar-thumb,
 body.theme-dark .notepad-editor::-webkit-scrollbar-thumb,
-body.theme-dark .surf-tab-list::-webkit-scrollbar-thumb,
-body.theme-dark .surf-start-page::-webkit-scrollbar-thumb,
-body.theme-dark .surf-error-state::-webkit-scrollbar-thumb,
+body.theme-dark .Browser-tab-list::-webkit-scrollbar-thumb,
+body.theme-dark .Browser-start-page::-webkit-scrollbar-thumb,
+body.theme-dark .Browser-error-state::-webkit-scrollbar-thumb,
 body.theme-dark .store-main::-webkit-scrollbar-thumb {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),

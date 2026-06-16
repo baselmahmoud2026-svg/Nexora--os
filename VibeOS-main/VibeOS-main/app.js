@@ -2064,28 +2064,28 @@ const notesApi = {
 };
 // end notes api
 
-// surf api
-const surfApi = {
-  tabList: document.getElementById("surfTabList"),
-  frame: document.getElementById("surfFrame"),
-  address: document.getElementById("surfAddress"),
-  startInput: document.getElementById("surfStartSearch"),
-  status: document.getElementById("surfStatus"),
-  progress: document.getElementById("surfProgress"),
-  startPage: document.getElementById("surfStartPage"),
-  errorState: document.getElementById("surfErrorState"),
+// Browser api
+const BrowserApi = {
+  tabList: document.getElementById("BrowserTabList"),
+  frame: document.getElementById("BrowserFrame"),
+  address: document.getElementById("BrowserAddress"),
+  startInput: document.getElementById("BrowserStartSearch"),
+  status: document.getElementById("BrowserStatus"),
+  progress: document.getElementById("BrowserProgress"),
+  startPage: document.getElementById("BrowserStartPage"),
+  errorState: document.getElementById("BrowserErrorState"),
   tabs: [],
   activeTabId: "",
   loadingTimer: null,
   statusTimer: null,
-  fallbackUrl: "surf://start",
+  fallbackUrl: "Browser://start",
 
-  //--->get_active_surf_tab()
+  //--->get_active_Browser_tab()
   get activeTab() {
     return this.tabs.find((tab) => tab.id === this.activeTabId) || null;
   },
 
-  //--->clean_surf_url()
+  //--->clean_Browser_url()
   cleanUrl(value) {
     const typed = value.trim();
 
@@ -2104,7 +2104,7 @@ const surfApi = {
     return `https://${typed}`;
   },
 
-  //--->set_surf_status()
+  //--->set_Browser_status()
   setStatus(text) {
     if (!this.status) {
       return;
@@ -2121,16 +2121,16 @@ const surfApi = {
     }, 3600);
   },
 
-  //--->set_surf_loading()
+  //--->set_Browser_loading()
   setLoading(isLoading) {
     this.progress?.classList.toggle("loading", isLoading);
     this.frame?.classList.toggle("loading", isLoading);
   },
 
-  //--->create_surf_tab()
+  //--->create_Browser_tab()
   createTab(url = "", switchToTab = true) {
     const tab = {
-      id: `surf-tab-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+      id: `Browser-tab-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
       title: "New Tab",
       url: "",
       history: [this.fallbackUrl],
@@ -2154,7 +2154,7 @@ const surfApi = {
     return tab;
   },
 
-  //--->get_surf_tab_title()
+  //--->get_Browser_tab_title()
   getTitle(url) {
     if (!url) {
       return "New Tab";
@@ -2163,11 +2163,11 @@ const surfApi = {
     try {
       return new URL(url).hostname.replace(/^www\./, "");
     } catch (error) {
-      return "Surf";
+      return "Browser";
     }
   },
 
-  //--->render_surf_tabs()
+  //--->render_Browser_tabs()
   renderTabs() {
     if (!this.tabList) {
       return;
@@ -2181,14 +2181,14 @@ const surfApi = {
       const close = document.createElement("span");
 
       button.type = "button";
-      button.className = "surf-tab";
+      button.className = "Browser-tab";
       button.classList.toggle("active", tab.id === this.activeTabId);
-      button.dataset.surfTab = tab.id;
+      button.dataset.BrowserTab = tab.id;
 
       title.textContent = tab.title;
-      close.className = "surf-tab-close";
+      close.className = "Browser-tab-close";
       close.textContent = "x";
-      close.dataset.surfCloseTab = tab.id;
+      close.dataset.BrowserCloseTab = tab.id;
       close.setAttribute("aria-label", `Close ${tab.title}`);
 
       button.append(title, close);
@@ -2198,7 +2198,7 @@ const surfApi = {
     this.updateButtons();
   },
 
-  //--->switch_surf_tab()
+  //--->switch_Browser_tab()
   switchTab(id) {
     const tab = this.tabs.find((item) => item.id === id);
 
@@ -2217,7 +2217,7 @@ const surfApi = {
     this.load(tab.url, false);
   },
 
-  //--->close_surf_tab()
+  //--->close_Browser_tab()
   closeTab(id) {
     if (this.tabs.length <= 1) {
       this.showHome(false);
@@ -2243,7 +2243,7 @@ const surfApi = {
     this.renderTabs();
   },
 
-  //--->show_surf_home()
+  //--->show_Browser_home()
   showHome(push = true) {
     const tab = this.activeTab;
 
@@ -2273,7 +2273,7 @@ const surfApi = {
     this.updateButtons();
   },
 
-  //--->load_surf_url()
+  //--->load_Browser_url()
   load(value, push = true) {
     const tab = this.activeTab;
     const url = this.cleanUrl(value);
@@ -2309,7 +2309,7 @@ const surfApi = {
     this.updateButtons();
   },
 
-  //--->move_surf_history()
+  //--->move_Browser_history()
   go(delta) {
     const tab = this.activeTab;
 
@@ -2334,7 +2334,7 @@ const surfApi = {
     this.load(item, false);
   },
 
-  //--->reload_surf()
+  //--->reload_Browser()
   reload() {
     const tab = this.activeTab;
 
@@ -2346,7 +2346,7 @@ const surfApi = {
     this.showHome(false);
   },
 
-  //--->show_surf_error()
+  //--->show_Browser_error()
   showError() {
     if (!this.activeTab?.url) {
       return;
@@ -2359,29 +2359,29 @@ const surfApi = {
     this.errorState?.setAttribute("aria-hidden", "false");
   },
 
-  //--->update_surf_buttons()
+  //--->update_Browser_buttons()
   updateButtons() {
     const tab = this.activeTab;
 
-    document.querySelector('[data-surf-action="back"]')?.toggleAttribute("disabled", !tab || tab.index <= 0);
-    document.querySelector('[data-surf-action="forward"]')?.toggleAttribute("disabled", !tab || tab.index >= tab.history.length - 1);
+    document.querySelector('[data-Browser-action="back"]')?.toggleAttribute("disabled", !tab || tab.index <= 0);
+    document.querySelector('[data-Browser-action="forward"]')?.toggleAttribute("disabled", !tab || tab.index >= tab.history.length - 1);
   },
 
-  //--->bind_surf()
+  //--->bind_Browser()
   bind() {
-    document.querySelector("[data-surf-form]")?.addEventListener("submit", (event) => {
+    document.querySelector("[data-Browser-form]")?.addEventListener("submit", (event) => {
       event.preventDefault();
       this.load(this.address.value);
     });
 
-    document.querySelector("[data-surf-start-form]")?.addEventListener("submit", (event) => {
+    document.querySelector("[data-Browser-start-form]")?.addEventListener("submit", (event) => {
       event.preventDefault();
       this.load(this.startInput.value);
     });
 
-    document.querySelectorAll("[data-surf-action]").forEach((button) => {
+    document.querySelectorAll("[data-Browser-action]").forEach((button) => {
       button.addEventListener("click", () => {
-        const action = button.dataset.surfAction;
+        const action = button.dataset.BrowserAction;
 
         if (action === "back") {
           this.go(-1);
@@ -2414,17 +2414,17 @@ const surfApi = {
     });
 
     this.tabList?.addEventListener("click", (event) => {
-      const close = event.target.closest("[data-surf-close-tab]");
-      const tab = event.target.closest("[data-surf-tab]");
+      const close = event.target.closest("[data-Browser-close-tab]");
+      const tab = event.target.closest("[data-Browser-tab]");
 
       if (close) {
         event.stopPropagation();
-        this.closeTab(close.dataset.surfCloseTab);
+        this.closeTab(close.dataset.BrowserCloseTab);
         return;
       }
 
       if (tab) {
-        this.switchTab(tab.dataset.surfTab);
+        this.switchTab(tab.dataset.BrowserTab);
       }
     });
 
@@ -2446,7 +2446,7 @@ const surfApi = {
     this.createTab();
   },
 };
-// end surf api
+// end Browser api
 
 // install api
 const installApi = {
@@ -4037,7 +4037,7 @@ const firstRunApi = {
 settingsApi.load();
 settingsApi.apply();
 appApi.createApp({ name: "notes", title: "notes", icon: "assets/notes.png", system: true });
-appApi.createApp({ name: "browser", title: "Surf", icon: "assets/surf.png", system: true });
+appApi.createApp({ name: "browser", title: "Browser", icon: "assets/Browser.png", system: true });
 appApi.createApp({ name: "files", title: "files", icon: "assets/file-explorer.png", system: true });
 appApi.createApp({ name: "settings", title: "settings", icon: "assets/settings.png", system: true });
 appApi.createApp({ name: "vibestore", title: "VibeStore", icon: "assets/vibestore.png", system: true });
@@ -4053,7 +4053,7 @@ desktopIconApi.apply();
 
 notesApi.load();
 notesApi.bind();
-surfApi.bind();
+BrowserApi.bind();
 installApi.bind();
 calculatorApi.bind();
 settingsApi.bind();

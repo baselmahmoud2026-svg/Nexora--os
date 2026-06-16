@@ -12,14 +12,14 @@ https://vibe-os-lac.vercel.app/
 
 - **Complete window management** — Drag, resize, minimize, maximize, and fullscreen windows with smooth animations
 - **File system with persistence** — Create, rename, duplicate, and delete text files and folders that persist across sessions
-- **Built-in applications** — Notes editor, file explorer, browser (Surf), settings, app store, terminal, and guide
+- **Built-in applications** — Notes editor, file explorer, browser (Browser), settings, app store, terminal, and guide
 - **Installable apps** — Calculator, Focus timer, and Weather app available from VibeStore
 - **Desktop widgets** — Digital clock, analog clock, and calendar widgets you can place and resize
 - **Theme customization** — Light and dark modes with multiple accent colors and wallpapers
 - **Responsive dock** — Dynamic dock with app launcher and minimized window management
 - **Smart layouts** — Auto-align desktop icons to grid with collision detection
 - **Full keyboard shortcuts** — Ctrl+S to save, Ctrl+N for new file, and more
-- **Browser preview** — Surf app lets you preview websites in embedded iframes
+- **Browser preview** — Browser app lets you preview websites in embedded iframes
 - **System controls** — Control center with Wi-Fi status, battery info, and brightness adjustment
 
 ##  How to run
