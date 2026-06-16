@@ -4,10 +4,6 @@ A glass-morphic desktop environment that runs in your browser with macOS-inspire
 
 ![nexoraos Desktop](assets/nexoraos.png)
 
-##  Try it
-
-https://vibe-os-lac.vercel.app/
-
 ##  Features
 
 - **Complete window management** — Drag, resize, minimize, maximize, and fullscreen windows with smooth animations
@@ -35,11 +31,9 @@ No build process, no dependencies, no server required. Everything runs client-si
 nexoraos uses vanilla JavaScript with Web APIs for a native-like desktop experience. The window system uses CSS transforms and the Web Animations API for fluid minimize/restore animations that match macOS behavior. File persistence leverages localStorage with JSON serialization, while the dock implements a z-index stacking system for proper window focus management. Desktop icon positioning uses a spatial grid algorithm with collision detection to prevent overlaps. The glass-morphic UI applies CSS backdrop-filter with layered gradients and careful opacity tuning for depth.
 
 ##  Credits
-
-- Icons by Lucide (https://lucide.dev)
 - Fonts: Inter UI 
 - Design inspiration: macOS Big Sur and later
 
 ---
 
-Built with ❤️ using vanilla HTML, CSS, and JavaScript by VibeSlayer
+Built with using vanilla HTML, CSS, and JavaScript b
