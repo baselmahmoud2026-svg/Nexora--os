@@ -199,7 +199,7 @@ git push origin feature-name
 
 ## 👨‍💻 Authors
 
-### Bassel Mohammed & Ammar Yasser 
+### Basel Mohammed & Ammar Yasser 
 
 ---
 
