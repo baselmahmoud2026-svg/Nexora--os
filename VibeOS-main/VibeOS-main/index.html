@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nexoraos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="boot-screen" id="bootScreen" aria-label="ASUS boot screen">
+      <img src="assets/asus.png" alt="ASUS" />
+      <div class="boot-loader" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="lock-screen" id="lockScreen" aria-label="nexoraos lock screen">
+      <div class="lock-screen-shade" aria-hidden="true"></div>
+      <div class="lock-screen-content">
+        <header class="lock-screen-top">
+          <span>nexoraos</span>
+          <div class="lock-status-icons" aria-hidden="true">
+            <i data-lucide="wifi"></i>
+            <i data-lucide="battery-full"></i>
+          </div>
+        </header>
+        <div class="lock-clock-card">
+          <time class="lock-time" id="lockClock">--:--</time>
+          <span class="lock-date" id="lockDate">Today</span>
+        </div>
+        <button class="lock-unlock" type="button" id="unlockButton" aria-label="Unlock nexoraos">
+          <span>Enter nexoraos</span>
+          <i data-lucide="arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </section>
+
+    <main class="desktop">
+      <div class="bg-wordmark" aria-hidden="true">Vibe OS</div>
+
+      <header class="top-island" aria-label="nexoraos top bar">
+        <div class="brand-chip">
+          <span class="brand-name">nexoraos</span>
+        </div>
+
+        <section class="app-switcher" id="dockApps" aria-label="Minimized apps"></section>
+
+        <section class="system-cluster" aria-label="System time">
+          <time class="clock" id="clock">--:--</time>
+        </section>
+      </header>
+
+      <aside class="system-dock" aria-label="System status dock">
+        <div class="system-indicators" aria-label="System indicators">
+          <button class="status-button" type="button" data-status-icon="wifi" aria-label="Wi-Fi connected">
+            <i data-lucide="wifi" aria-hidden="true"></i>
+          </button>
+          <button class="status-button" type="button" data-status-icon="brightness" aria-label="Brightness">
+            <i data-lucide="sun" aria-hidden="true"></i>
+          </button>
+          <button class="status-button" type="button" data-status-icon="control" aria-label="Control Center">
+            <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+          </button>
+        </div>
+      </aside>
+
+      <section class="system-panel" id="systemPanel" data-mode="control" aria-label="System controls" aria-hidden="true">
+        <header class="system-panel-header">
+          <button class="system-back" type="button" data-system-back aria-label="Back to Control Center">
+            <i data-lucide="chevron-left" aria-hidden="true"></i>
+          </button>
+          <div>
+            <strong id="systemPanelTitle">Control Center</strong>
+            <span id="systemPanelHint">nexoraos system</span>
+          </div>
+        </header>
+        <article class="system-card wifi-card">
+          <button class="system-toggle active" type="button" data-system-view="wifi">
+            <span>
+              <i data-lucide="wifi" aria-hidden="true"></i>
+              Wi-Fi
+            </span>
+            <strong id="wifiState">Connected</strong>
+          </button>
+          <div class="wifi-readout-card">
+            <canvas class="wifi-graph" id="wifiGraph" width="260" height="92" aria-hidden="true"></canvas>
+            <div class="network-readout">
+              <strong id="wifiSpeed">-- Mbps</strong>
+              <span id="wifiType">Checking network</span>
+            </div>
+          </div>
+        </article>
+        <article class="system-card battery-card">
+          <button class="system-toggle" type="button" data-system-view="battery">
+            <span>
+              <i data-lucide="battery" aria-hidden="true"></i>
+              Battery
+            </span>
+            <strong id="batteryState">Off</strong>
+          </button>
+          <div class="battery-readout">
+            <strong id="batteryLevel">Battery --</strong>
+            <span id="batteryDetail">Waiting for browser battery access</span>
+          </div>
+        </article>
+        <label class="brightness-control">
+          <span>
+            <i data-lucide="sun" aria-hidden="true"></i>
+            Brightness
+          </span>
+          <input id="brightnessSlider" type="range" min="70" max="115" value="100" />
+        </label>
+      </section>
+
+      <nav class="main-dock" id="mainDock" aria-label="nexoraos Dock"></nav>
+
+      <section class="desktop-icons" aria-label="Desktop apps">
+        <button class="desktop-icon" type="button" data-open="notes">
+          <span class="icon-frame notes-app-icon">
+            <img src="assets/notes.png" alt="" />
+          </span>
+          <strong>notes</strong>
+        </button>
+        <button class="desktop-icon" type="button" data-open="browser">
+          <span class="icon-frame logo-app-icon">
+            <img src="assets/surf.png" alt="" />
+          </span>
+          <strong>Surf</strong>
+        </button>
+        <button class="desktop-icon" type="button" data-open="files">
+          <span class="icon-frame file-app-icon">
+            <img src="assets/file-explorer.png" alt="" />
+          </span>
+          <strong>files</strong>
+        </button>
+        <button class="desktop-icon" type="button" data-open="settings">
+          <span class="icon-frame settings-app-icon">
+            <img src="assets/settings.png" alt="" />
+          </span>
+          <strong>settings</strong>
+        </button>
+        <button class="desktop-icon" type="button" data-open="vibestore">
+          <span class="icon-frame vibestore-app-icon">
+            <img src="assets/vibestore.png" alt="" />
+          </span>
+          <strong>VibeStore</strong>
+        </button>
+        <button class="desktop-icon installable-icon" type="button" data-open="calculator" data-installable-app="calculator" hidden>
+          <span class="icon-frame calculator-app-icon">
+            <img src="assets/calculator.png" alt="" />
+          </span>
+          <strong>Calculator</strong>
+        </button>
+        <button class="desktop-icon installable-icon" type="button" data-open="focus" data-installable-app="focus" hidden>
+          <span class="icon-frame focus-app-icon">
+            <img src="assets/focus.png" alt="" />
+          </span>
+          <strong>Focus</strong>
+        </button>
+
+        <button class="desktop-icon" type="button" data-open="terminal">
+          <span class="icon-frame generated-app-icon terminal-app-icon">
+            <i data-lucide="terminal" aria-hidden="true"></i>
+          </span>
+          <strong>Terminal</strong>
+        </button>
+        <button class="desktop-icon" type="button" data-open="guide">
+          <span class="icon-frame generated-app-icon guide-app-icon">
+            <i data-lucide="book-open-check" aria-hidden="true"></i>
+          </span>
+          <strong>Guide</strong>
+        </button>
+      </section>
+
+      <section class="desktop-files" id="desktopFiles" aria-label="Desktop files"></section>
+
+      <section class="widget-layer" id="widgetLayer" aria-label="Desktop widgets"></section>
+      <div class="placement-hint" id="placementHint" aria-hidden="true">
+        Click anywhere to place widget
+      </div>
+
+      <section class="context-menu" id="contextMenu" aria-label="Desktop options">
+        <button type="button" data-action="toggle-icons">
+          <span>View</span>
+          <kbd>icons</kbd>
+        </button>
+        <button type="button" data-action="sort-icons">
+          <span>Sort by</span>
+          <kbd>name</kbd>
+        </button>
+        <button type="button" data-action="auto-align-icons">
+          <span>Auto align icons</span>
+          <kbd>grid</kbd>
+        </button>
+        <div class="context-line"></div>
+        <button type="button" data-action="new-file">
+          <span>New file</span>
+          <kbd>txt</kbd>
+        </button>
+        <button type="button" data-action="new-folder">
+          <span>New folder</span>
+          <kbd>dir</kbd>
+        </button>
+        <div class="context-line"></div>
+        <button type="button" data-action="customize-desktop">
+          <span>Customize Desktop</span>
+        </button>
+      </section>
+
+      <section class="context-menu widget-menu" id="widgetMenu" aria-label="Widget options">
+        <button type="button" data-widget-action="toggle-lock">
+          <span>Lock widget</span>
+        </button>
+        <button type="button" data-widget-action="small">
+          <span>Small size</span>
+        </button>
+        <button type="button" data-widget-action="medium">
+          <span>Medium size</span>
+        </button>
+        <button type="button" data-widget-action="large">
+          <span>Large size</span>
+        </button>
+        <div class="context-line"></div>
+        <button class="danger" type="button" data-widget-action="remove">
+          <span>Remove widget</span>
+        </button>
+      </section>
+
+      <section class="context-menu file-menu" id="fileMenu" aria-label="File options">
+        <button type="button" data-file-menu-action="open">
+          <span>Open</span>
+        </button>
+        <button type="button" data-file-menu-action="rename">
+          <span>Rename</span>
+        </button>
+        <button type="button" data-file-menu-action="duplicate">
+          <span>Duplicate</span>
+        </button>
+        <div class="context-line"></div>
+        <button class="danger" type="button" data-file-menu-action="delete">
+          <span>Delete</span>
+        </button>
+      </section>
+
+      <section class="context-menu app-menu" id="appMenu" aria-label="App options">
+        <button type="button" data-app-menu-action="open">
+          <span>Open</span>
+        </button>
+        <button class="danger" type="button" data-app-menu-action="uninstall">
+          <span>Uninstall</span>
+        </button>
+      </section>
+
+      <section class="modal-backdrop" id="customizeModal" aria-label="Customize Desktop" aria-hidden="true">
+        <div class="customize-modal" role="dialog" aria-modal="true">
+          <header class="modal-header">
+            <div>
+              <p>nexoraos</p>
+              <h2>Customize Desktop</h2>
+            </div>
+            <button class="modal-close" type="button" data-action="close-customize" aria-label="Close customize desktop">x</button>
+          </header>
+
+          <div class="modal-grid">
+            <article class="modal-panel">
+              <h3>Widgets</h3>
+              <p>Pick a widget, then click the desktop to place and resize it.</p>
+              <div class="modal-actions">
+                <button type="button" data-modal-widget="clock">Place digital clock</button>
+                <button type="button" data-modal-widget="analog-clock">Place analog clock</button>
+                <button type="button" data-modal-widget="calendar">Place calendar</button>
+                <button type="button" data-modal-action="clear-widgets">Clear widgets</button>
+              </div>
+            </article>
+
+            <article class="modal-panel">
+              <h3>Desktop</h3>
+              <p>Control the visible desktop layers without changing the app logic.</p>
+              <div class="modal-actions">
+                <button type="button" data-modal-action="toggle-wordmark">Toggle wordmark</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="notes" style="left: 500px; top: 126px; width: 620px" data-app="notes" data-title="notes" data-icon="assets/notes.png" aria-label="notes app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close notes"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize notes"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen notes"></button>
+          </div>
+          <span class="window-title" id="notesWindowTitle">Untitled - Notepad</span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body notes-body">
+          <nav class="notepad-menu" aria-label="Notepad menu">
+            <button type="button" data-note-action="new">New</button>
+            <button type="button" data-note-action="save">Save</button>
+            <button type="button" data-note-action="save-desktop">Save to Desktop</button>
+            <button type="button" data-note-action="toggle-wrap">Word Wrap</button>
+          </nav>
+          <div class="notepad-toolbar">
+            <span id="noteFileName">Untitled</span>
+            <span id="noteSaveState">Saved</span>
+          </div>
+          <textarea class="notepad-editor" id="noteEditor" spellcheck="false" aria-label="Notepad editor"></textarea>
+          <footer class="notepad-status">
+            <span id="notePosition">Ln 1, Col 1</span>
+            <span id="noteCount">0 characters</span>
+            <span>Windows (CRLF)</span>
+            <span>UTF-8</span>
+          </footer>
+        </div>
+      </section>
+
+      <section class="window surf-window" id="browser" style="left: 500px; top: 180px; width: 760px; height: 560px" data-app="browser" data-title="Surf" data-icon="assets/surf.png" aria-label="Surf browser window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close Surf"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize Surf"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen Surf"></button>
+          </div>
+          <span class="window-title surf-title-logo">
+            <img src="assets/surf.png" alt="Surf" />
+          </span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body surf-body">
+          <div class="surf-tabbar">
+            <div class="surf-tab-list" id="surfTabList" aria-label="Surf tabs"></div>
+            <button class="surf-new-tab" type="button" data-surf-action="new-tab" aria-label="New tab">
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+          </div>
+          <form class="surf-toolbar" data-surf-form>
+            <div class="surf-nav">
+              <button type="button" data-surf-action="back" aria-label="Back">
+                <i data-lucide="chevron-left" aria-hidden="true"></i>
+              </button>
+              <button type="button" data-surf-action="forward" aria-label="Forward">
+                <i data-lucide="chevron-right" aria-hidden="true"></i>
+              </button>
+              <button type="button" data-surf-action="reload" aria-label="Reload">
+                <i data-lucide="rotate-cw" aria-hidden="true"></i>
+              </button>
+              <button type="button" data-surf-action="home" aria-label="Home">
+                <i data-lucide="house" aria-hidden="true"></i>
+              </button>
+            </div>
+            <label class="surf-address">
+              <i data-lucide="globe-2" aria-hidden="true"></i>
+              <input id="surfAddress" type="text" placeholder="Search or enter website" autocomplete="off" spellcheck="false" aria-label="Surf address bar" />
+            </label>
+            <button class="surf-go" type="submit" aria-label="Go">
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+          <div class="surf-progress" id="surfProgress" aria-hidden="true"></div>
+          <div class="surf-frame-shell">
+            <section class="surf-start-page" id="surfStartPage" aria-label="Surf start page">
+              <div class="surf-bg-glow one"></div>
+              <div class="surf-bg-glow two"></div>
+              <div class="surf-start-center">
+                <img class="surf-start-logo" src="assets/surf.png" alt="" />
+                <h2>Where do you want to surf today?</h2>
+                <form class="surf-start-search" data-surf-start-form>
+                  <i data-lucide="search" aria-hidden="true"></i>
+                  <input id="surfStartSearch" type="text" placeholder="Search or enter website" autocomplete="off" spellcheck="false" aria-label="Search or enter website" />
+                  <button type="submit" aria-label="Search">
+                    <i data-lucide="arrow-right" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </div>
+            </section>
+            <section class="surf-error-state" id="surfErrorState" aria-hidden="true">
+              <img src="assets/surf.png" alt="" />
+              <h2>This site can't be previewed here</h2>
+              <p>Some websites block embedded previews. You can open it externally or try loading it again.</p>
+              <div>
+                <button type="button" data-surf-action="external">Open externally</button>
+                <button type="button" data-surf-action="retry">Try again</button>
+              </div>
+            </section>
+            <div class="surf-status" id="surfStatus" aria-hidden="true">Preview loaded · Some sites may block embeds</div>
+            <iframe id="surfFrame" title="Surf page preview" sandbox="allow-forms allow-scripts allow-popups"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="files" style="left: 390px; top: 142px; width: 700px" data-app="files" data-title="files" data-icon="assets/file-explorer.png" aria-label="files app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close files"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize files"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen files"></button>
+          </div>
+          <span class="window-title">files</span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body files-body">
+          <aside class="files-sidebar">
+            <button class="active" type="button" data-file-root="desktop">
+              <i data-lucide="monitor" aria-hidden="true"></i>
+              <span>Desktop</span>
+            </button>
+            <button type="button" data-file-root="documents">
+              <i data-lucide="file-text" aria-hidden="true"></i>
+              <span>Documents</span>
+            </button>
+            <button type="button" data-file-root="downloads">
+              <i data-lucide="download" aria-hidden="true"></i>
+              <span>Downloads</span>
+            </button>
+          </aside>
+          <div class="files-main">
+            <div class="files-toolbar">
+              <div>
+                <h3>Desktop</h3>
+                <p id="fileCount">0 items</p>
+              </div>
+              <div class="files-actions">
+                <button type="button" data-file-action="back">Back</button>
+                <button type="button" data-file-action="new-file">File</button>
+                <button type="button" data-file-action="new-folder">Folder</button>
+              </div>
+            </div>
+            <div class="files-selection-bar" id="fileSelectionBar">
+              <span id="selectedFileName">Nothing selected</span>
+              <div>
+                <button type="button" data-file-action="open-selected">Open</button>
+                <button type="button" data-file-action="rename-selected">Rename</button>
+                <button type="button" data-file-action="duplicate-selected">Duplicate</button>
+                <button type="button" data-file-action="delete-selected">Delete</button>
+              </div>
+            </div>
+            <div class="files-grid" id="filesGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="window settings-window" id="settings" style="left: 580px; top: 136px; width: 760px; height: 570px" data-app="settings" data-title="settings" data-icon="assets/settings.png" aria-label="settings app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close settings"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize settings"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen settings"></button>
+          </div>
+          <span class="window-title">settings</span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body settings-body">
+          <aside class="settings-sidebar" aria-label="Settings sections">
+            <button class="active" type="button" data-settings-section="appearance">
+              <i data-lucide="palette" aria-hidden="true"></i>
+              Appearance
+            </button>
+            <button type="button" data-settings-section="desktop">
+              <i data-lucide="image" aria-hidden="true"></i>
+              Desktop
+            </button>
+            <button type="button" data-settings-section="dock">
+              <i data-lucide="panel-bottom" aria-hidden="true"></i>
+              Dock
+            </button>
+            <button type="button" data-settings-section="about">
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              About
+            </button>
+          </aside>
+          <section class="settings-main">
+            <article class="settings-section active" data-settings-pane="appearance">
+              <header class="settings-heading">
+                <span>Personalize</span>
+                <h2>Appearance</h2>
+              </header>
+              <div class="setting-card">
+                <div>
+                  <strong>Theme</strong>
+                  <p>Choose a light glass desktop, dark mode, or follow your system.</p>
+                </div>
+                <div class="segmented-control" role="group" aria-label="Theme">
+                  <button type="button" data-setting-theme="light">Light</button>
+                  <button type="button" data-setting-theme="dark">Dark</button>
+                  <button type="button" data-setting-theme="system">System</button>
+                </div>
+              </div>
+              <div class="setting-card">
+                <div>
+                  <strong>Accent</strong>
+                  <p>Color used for highlights, buttons, and active states.</p>
+                </div>
+                <div class="accent-grid" aria-label="Accent colors">
+                  <button class="accent-dot teal" type="button" data-setting-accent="#226a78" aria-label="Teal accent"></button>
+                  <button class="accent-dot grape" type="button" data-setting-accent="#6f5cc4" aria-label="Grape accent"></button>
+                  <button class="accent-dot coral" type="button" data-setting-accent="#c25b45" aria-label="Coral accent"></button>
+                  <button class="accent-dot moss" type="button" data-setting-accent="#5d7f4f" aria-label="Moss accent"></button>
+                </div>
+              </div>
+            </article>
+
+            <article class="settings-section" data-settings-pane="desktop">
+              <header class="settings-heading">
+                <span>Wallpaper</span>
+                <h2>Desktop Background</h2>
+              </header>
+              <div class="background-grid">
+                <button class="background-swatch meadow" type="button" data-background-choice="meadow"><span>Meadow</span></button>
+                <button class="background-swatch aurora" type="button" data-background-choice="aurora"><span>Aurora</span></button>
+                <button class="background-swatch ocean" type="button" data-background-choice="ocean"><span>Ocean</span></button>
+                <button class="background-swatch sunset" type="button" data-background-choice="sunset"><span>Sunset</span></button>
+                <button class="background-swatch graphite" type="button" data-background-choice="graphite"><span>Graphite</span></button>
+                <button class="background-swatch background-one" type="button" data-background-choice="background1"><span>Background 1</span></button>
+                <button class="background-swatch background-two" type="button" data-background-choice="background2"><span>Background 2</span></button>
+              </div>
+              <div class="setting-card custom-background-card">
+                <div>
+                  <strong>Custom image URL</strong>
+                  <p>Paste an image URL when you add more wallpapers.</p>
+                </div>
+                <label class="custom-background-input">
+                  <input id="customBackgroundInput" type="url" placeholder="https://example.com/background.jpg" />
+                  <button type="button" data-setting-custom-background>Apply</button>
+                </label>
+              </div>
+            </article>
+
+            <article class="settings-section" data-settings-pane="dock">
+              <header class="settings-heading">
+                <span>Controls</span>
+                <h2>Dock</h2>
+              </header>
+              <div class="setting-card">
+                <div>
+                  <strong>Dock size</strong>
+                  <p>Pick a compact or roomy dock.</p>
+                </div>
+                <div class="segmented-control" role="group" aria-label="Dock size">
+                  <button type="button" data-setting-dock-size="compact">Compact</button>
+                  <button type="button" data-setting-dock-size="cozy">Cozy</button>
+                  <button type="button" data-setting-dock-size="large">Large</button>
+                </div>
+              </div>
+              <div class="setting-card">
+                <div>
+                  <strong>Desktop icons</strong>
+                  <p>Keep the desktop clean without uninstalling apps.</p>
+                </div>
+                <button class="setting-action" type="button" data-setting-toggle-icons>Toggle icons</button>
+              </div>
+            </article>
+
+            <article class="settings-section" data-settings-pane="about">
+              <header class="settings-heading">
+                <span>nexoraos</span>
+                <h2>About</h2>
+              </header>
+              <div class="about-brand">
+                <img src="assets/nexoraos.png" alt="nexoraos" />
+              </div>
+              <div class="about-grid">
+                <div><strong>Apps</strong><span>Dock, Store, Files, Surf, Notes, Settings, Terminal, Guide</span></div>
+                <div><strong>Extras</strong><span>Calculator, Focus</span></div>
+                <div><strong>Persistence</strong><span>Theme, dock, wallpaper, files, installs, first-run welcome</span></div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </section>
+
+      <section class="window vibestore-window" id="vibestore" style="left: 600px; top: 310px; width: 760px; height: 560px" data-app="vibestore" data-title="VibeStore" data-icon="assets/vibestore.png" aria-label="VibeStore app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close VibeStore"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize VibeStore"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen VibeStore"></button>
+          </div>
+          <span class="window-title vibestore-title-logo">
+            <img src="assets/vibestore.png" alt="VibeStore" />
+          </span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body vibestore-body">
+          <section class="store-simple">
+            <header class="store-simple-hero">
+              <img src="assets/vibestore.png" alt="" />
+              <div>
+                <p>VibeStore</p>
+                <h2>Small apps for your nexoraos desktop.</h2>
+                <span>Install apps here and they stay on your desktop after refresh.</span>
+              </div>
+            </header>
+            <div class="store-app-grid">
+              <article class="store-app-card" data-store-app="calculator">
+                <img src="assets/calculator.png" alt="" />
+                <div>
+                  <strong>Calculator</strong>
+                  <span>Basic calculator for quick math.</span>
+                </div>
+                <button type="button" data-install-app="calculator">Install</button>
+              </article>
+              <article class="store-app-card" data-store-app="focus">
+                <img src="assets/focus.png" alt="" />
+                <div>
+                  <strong>Focus</strong>
+                  <span>Pomodoro sessions with a calm progress ring.</span>
+                </div>
+                <button type="button" data-install-app="focus">Install</button>
+              </article>
+
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="window calculator-window" id="calculator" style="left: 720px; top: 160px; width: 320px" data-app="calculator" data-title="Calculator" data-icon="assets/calculator.png" aria-label="Calculator app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close Calculator"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize Calculator"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen Calculator"></button>
+          </div>
+          <span class="window-title calculator-title-logo">
+            <img src="assets/calculator.png" alt="Calculator" />
+          </span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body calculator-body">
+          <output class="calculator-display" id="calculatorDisplay" aria-live="polite">0</output>
+          <div class="calculator-keys" aria-label="Calculator keys">
+            <button type="button" data-calc-action="clear">C</button>
+            <button type="button" data-calc-action="sign">+/-</button>
+            <button type="button" data-calc-action="percent">%</button>
+            <button class="operator" type="button" data-calc-operator="/">/</button>
+            <button type="button" data-calc-value="7">7</button>
+            <button type="button" data-calc-value="8">8</button>
+            <button type="button" data-calc-value="9">9</button>
+            <button class="operator" type="button" data-calc-operator="*">*</button>
+            <button type="button" data-calc-value="4">4</button>
+            <button type="button" data-calc-value="5">5</button>
+            <button type="button" data-calc-value="6">6</button>
+            <button class="operator" type="button" data-calc-operator="-">-</button>
+            <button type="button" data-calc-value="1">1</button>
+            <button type="button" data-calc-value="2">2</button>
+            <button type="button" data-calc-value="3">3</button>
+            <button class="operator" type="button" data-calc-operator="+">+</button>
+            <button class="wide" type="button" data-calc-value="0">0</button>
+            <button type="button" data-calc-action="decimal">.</button>
+            <button class="equals" type="button" data-calc-action="equals">=</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window focus-window" id="focus" style="left: 690px; top: 166px; width: 360px" data-app="focus" data-title="Focus" data-icon="assets/focus.png" aria-label="Focus app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close Focus"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize Focus"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen Focus"></button>
+          </div>
+          <span class="window-title app-title-logo"><img src="assets/focus.png" alt="" />Focus</span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body focus-body">
+          <div class="focus-ring" id="focusRing">
+            <strong id="focusTime">25:00</strong>
+            <span id="focusState">Ready</span>
+          </div>
+          <div class="focus-actions">
+            <button type="button" data-focus-action="start">Start</button>
+            <button type="button" data-focus-action="pause">Pause</button>
+            <button type="button" data-focus-action="reset">Reset</button>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="window terminal-window" id="terminal" style="left: 470px; top: 150px; width: 720px; height: 520px" data-app="terminal" data-title="Terminal" data-icon-name="terminal" aria-label="Terminal app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close Terminal"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize Terminal"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen Terminal"></button>
+          </div>
+          <span class="window-title">Terminal</span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body terminal-body">
+          <div class="terminal-output" id="terminalOutput" aria-live="polite"></div>
+          <form class="terminal-input-line" id="terminalForm">
+            <span id="terminalPrompt">guest@nexoraos:~$</span>
+            <input id="terminalInput" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal command" />
+          </form>
+        </div>
+      </section>
+
+      <section class="window guide-window" id="guide" style="left: 520px; top: 120px; width: 760px; height: 580px" data-app="guide" data-title="Guide" data-icon-name="book-open-check" aria-label="Guide app window">
+        <div class="title-bar">
+          <div class="traffic-lights">
+            <button class="light red" type="button" data-window-action="close" aria-label="Close Guide"></button>
+            <button class="light yellow" type="button" data-window-action="minimize" aria-label="Minimize Guide"></button>
+            <button class="light green" type="button" data-window-action="fullscreen" aria-label="Fullscreen Guide"></button>
+          </div>
+          <span class="window-title">Guide</span>
+          <span class="title-spacer" aria-hidden="true"></span>
+        </div>
+        <div class="window-body guide-body">
+          <aside class="guide-nav">
+            <button class="active" type="button" data-guide-section="start"><i data-lucide="sparkles" aria-hidden="true"></i>Start</button>
+            <button type="button" data-guide-section="apps"><i data-lucide="layout-grid" aria-hidden="true"></i>Apps</button>
+            <button type="button" data-guide-section="windows"><i data-lucide="panel-top" aria-hidden="true"></i>Windows</button>
+            <button type="button" data-guide-section="files"><i data-lucide="folder-open" aria-hidden="true"></i>Files</button>
+            <button type="button" data-guide-section="customize"><i data-lucide="palette" aria-hidden="true"></i>Customize</button>
+          </aside>
+          <div class="guide-content">
+            <section class="guide-panel active" data-guide-pane="start">
+              <div class="guide-hero">
+                <span class="guide-kicker">Start here</span>
+                <h2>Welcome to nexoraos</h2>
+                <p>Everything lives where it should: apps on the dock, files on the desktop, system controls up top, and deeper tools inside windows.</p>
+              </div>
+              <div class="guide-card-grid">
+                <article><i data-lucide="mouse-pointer-click" aria-hidden="true"></i><strong>Open fast</strong><span>Use desktop icons, the dock, or Terminal commands.</span></article>
+                <article><i data-lucide="bell" aria-hidden="true"></i><strong>Stay aware</strong><span>First-run tips and system panels keep the desktop readable.</span></article>
+                <article><i data-lucide="maximize-2" aria-hidden="true"></i><strong>Go fullscreen</strong><span>Every app window supports fullscreen and edge resizing.</span></article>
+              </div>
+            </section>
+            <section class="guide-panel" data-guide-pane="apps">
+              <h2>Apps</h2>
+              <p>Open system apps from the desktop or dock. Install Calculator and Focus from VibeStore.</p>
+              <div class="guide-card-grid">
+                <article><i data-lucide="globe" aria-hidden="true"></i><strong>Surf</strong><span>Browse inside nexoraos and open blocked pages externally.</span></article>
+
+                <article><i data-lucide="terminal" aria-hidden="true"></i><strong>Terminal</strong><span>Run clean local commands without extra clutter.</span></article>
+              </div>
+            </section>
+            <section class="guide-panel" data-guide-pane="windows">
+              <h2>Windows</h2>
+              <p>Drag title bars, resize from any edge or corner, minimize into the top switcher, and use the green button for fullscreen.</p>
+              <div class="guide-strip">
+                <span>Drag</span><span>Resize</span><span>Minimize</span><span>Fullscreen</span>
+              </div>
+            </section>
+            <section class="guide-panel" data-guide-pane="files">
+              <h2>Files</h2>
+              <p>Create files and folders from right-click menus or Files. Text files open in Notes and use a clean document icon.</p>
+              <div class="guide-card-grid">
+                <article><i data-lucide="folder-plus" aria-hidden="true"></i><strong>Create</strong><span>Add folders and text files from the desktop menu.</span></article>
+                <article><i data-lucide="copy" aria-hidden="true"></i><strong>Duplicate</strong><span>Use Files actions without leaving the window.</span></article>
+                <article><i data-lucide="pencil" aria-hidden="true"></i><strong>Edit</strong><span>Open text files directly in Notes.</span></article>
+              </div>
+            </section>
+            <section class="guide-panel" data-guide-pane="customize">
+              <h2>Customize</h2>
+              <p>Settings controls theme, accent, wallpapers, dock size, and icon visibility. Right-click the desktop to add widgets.</p>
+              <div class="guide-strip">
+                <span>Theme</span><span>Accent</span><span>Dock</span><span>Wallpaper</span><span>Widgets</span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
